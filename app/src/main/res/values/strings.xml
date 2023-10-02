@@ -3,4 +3,11 @@
     <string name="app_title">Calculadora IMD</string>
     <string name="calculadora_button">Calculadora</string>
     <string name="notas_button">Notas</string>
+    <string name="notas_title">Calcule sua Média</string>
+    <string name="nota1_hint">Insira a nota 01</string>
+    <string name="nota2_hint">Insira a nota 02</string>
+    <string name="nota3_hint">Insira a nota 03</string>
+    <string name="situacao_media">Situação: </string>
+    <string name="calcular_media_button">Calcular</string>
+    <string name="credits">Desenvolvido por: Hugo Felipe dos Santos</string>
 </resources>
