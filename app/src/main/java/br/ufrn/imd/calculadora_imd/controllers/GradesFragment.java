@@ -12,17 +12,17 @@ import br.ufrn.imd.calculadora_imd.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link NotasFragment#newInstance} factory method to
+ * Use the {@link GradesFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class NotasFragment extends Fragment {
-    public NotasFragment() {
+public class GradesFragment extends Fragment {
+    public GradesFragment() {
         // Required empty public constructor
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_notas, container, false);
+        return inflater.inflate(R.layout.fragment_grades, container, false);
     }
 }

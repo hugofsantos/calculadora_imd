@@ -2,20 +2,20 @@
     <string name="app_name">calculadora_imd</string>
     <!-- Main Activity -->
     <string name="app_title">Calculadora IMD</string>
-    <string name="calculadora_button">Calculadora</string>
-    <string name="notas_button">Notas</string>
+    <string name="calculator_button">Calculadora</string>
+    <string name="grades_button">Notas</string>
 
-    <!-- Notas Fragment -->
-    <string name="notas_title">Calcule sua Média</string>
-    <string name="nota1_hint">Insira a nota 01</string>
-    <string name="nota2_hint">Insira a nota 02</string>
-    <string name="nota3_hint">Insira a nota 03</string>
-    <string name="situacao_media">Situação: </string>
-    <string name="calcular_media_button">Calcular</string>
+    <!-- Grades Fragment -->
+    <string name="grades_title">Calcule sua Média</string>
+    <string name="grade1_hint">Insira a nota 01</string>
+    <string name="grade2_hint">Insira a nota 02</string>
+    <string name="grade3_hint">Insira a nota 03</string>
+    <string name="situation">Situação: </string>
+    <string name="calculate_average_button">Calcular</string>
     <string name="credits">Desenvolvido por: Hugo Felipe dos Santos</string>
 
-    <!-- Calculadora Fragment -->
-    <string name="calculadora_result">Resultado: </string>
+    <!-- Calculator Fragment -->
+    <string name="calculator_result">Resultado: </string>
     <string name="button_one">1</string>
     <string name="button_two">2</string>
     <string name="button_three">3</string>
