@@ -1,8 +1,11 @@
 <resources>
     <string name="app_name">calculadora_imd</string>
+    <!-- Main Activity -->
     <string name="app_title">Calculadora IMD</string>
     <string name="calculadora_button">Calculadora</string>
     <string name="notas_button">Notas</string>
+
+    <!-- Notas Fragment -->
     <string name="notas_title">Calcule sua Média</string>
     <string name="nota1_hint">Insira a nota 01</string>
     <string name="nota2_hint">Insira a nota 02</string>
@@ -10,4 +13,23 @@
     <string name="situacao_media">Situação: </string>
     <string name="calcular_media_button">Calcular</string>
     <string name="credits">Desenvolvido por: Hugo Felipe dos Santos</string>
+
+    <!-- Calculadora Fragment -->
+    <string name="calculadora_result">Resultado: </string>
+    <string name="button_one">1</string>
+    <string name="button_two">2</string>
+    <string name="button_three">3</string>
+    <string name="button_four">4</string>
+    <string name="button_five">5</string>
+    <string name="button_six">6</string>
+    <string name="button_seven">7</string>
+    <string name="button_eight">8</string>
+    <string name="button_nine">9</string>
+    <string name="button_zero">0</string>
+    <string name="button_addition">+</string>
+    <string name="button_subtraction">-</string>
+    <string name="button_multiplication">X</string>
+    <string name="button_division">/</string>
+    <string name="button_delete">DEL</string>
+    <string name="button_equal">=</string>
 </resources>
