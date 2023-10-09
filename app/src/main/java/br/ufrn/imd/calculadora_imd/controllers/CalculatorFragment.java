@@ -7,60 +7,89 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
+
+import net.objecthunter.exp4j.Expression;
+import net.objecthunter.exp4j.ExpressionBuilder;
 
 import br.ufrn.imd.calculadora_imd.R;
+import br.ufrn.imd.calculadora_imd.utils.AppAlertDialog;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link CalculatorFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class CalculatorFragment extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
+    private TextView display;
     public CalculatorFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment CalculadoraFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static CalculatorFragment newInstance(String param1, String param2) {
-        CalculatorFragment fragment = new CalculatorFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_calculator, container, false);
+
+        this.display = (TextView) view.findViewById(R.id.resultadoCalculadora);
+        Button buttonOne = (Button) view.findViewById(R.id.buttonOne);
+        Button buttonTwo = (Button) view.findViewById(R.id.buttonTwo);
+        Button buttonThree = (Button) view.findViewById(R.id.buttonThree);
+        Button buttonFour = (Button) view.findViewById(R.id.buttonFour);
+        Button buttonFive = (Button) view.findViewById(R.id.buttonFive);
+        Button buttonSix = (Button) view.findViewById(R.id.buttonSix);
+        Button buttonSeven = (Button) view.findViewById(R.id.buttonSeven);
+        Button buttonEight = (Button) view.findViewById(R.id.buttonEight);
+        Button buttonNine = (Button) view.findViewById(R.id.buttonNine);
+        Button buttonZero = (Button) view.findViewById(R.id.buttonZero);
+        Button buttonAddition = (Button) view.findViewById(R.id.buttonAddition);
+        Button buttonSubtraction = (Button) view.findViewById(R.id.buttonSubtraction);
+        Button buttonMultiplication = (Button) view.findViewById(R.id.buttonMultiplication);
+        Button buttonDivision = (Button) view.findViewById(R.id.buttonDivision);
+        Button buttonDelete = (Button) view.findViewById(R.id.buttonDelete);
+        Button buttonEqual = (Button) view.findViewById(R.id.buttonEqual);
+
+        buttonOne.setOnClickListener(getCalculatorClickListener("1"));
+        buttonTwo.setOnClickListener(getCalculatorClickListener("2"));
+        buttonThree.setOnClickListener(getCalculatorClickListener("3"));
+        buttonFour.setOnClickListener(getCalculatorClickListener("4"));
+        buttonFive.setOnClickListener(getCalculatorClickListener("5"));
+        buttonSix.setOnClickListener(getCalculatorClickListener("6"));
+        buttonSeven.setOnClickListener(getCalculatorClickListener("7"));
+        buttonEight.setOnClickListener(getCalculatorClickListener("8"));
+        buttonNine.setOnClickListener(getCalculatorClickListener("9"));
+        buttonZero.setOnClickListener(getCalculatorClickListener("0"));
+        buttonAddition.setOnClickListener(getCalculatorClickListener("+"));
+        buttonSubtraction.setOnClickListener(getCalculatorClickListener("-"));
+        buttonMultiplication.setOnClickListener(getCalculatorClickListener("*"));
+        buttonDivision.setOnClickListener(getCalculatorClickListener("/"));
+        buttonDelete.setOnClickListener(deleteLastValue());
+        buttonEqual.setOnClickListener(calculate());
+
+        return view;
     }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+    private View.OnClickListener getCalculatorClickListener(final String buttonText) {
+        return (View v) -> {
+            this.display.setText(display.getText().toString() + buttonText);
+        };
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_calculator, container, false);
+    private View.OnClickListener deleteLastValue() {
+        return (View v) -> {
+            if(this.display.length() > 0) {
+                display.setText(display.getText().subSequence(0, this.display.length() - 1));
+            }
+        };
     }
+
+    private View.OnClickListener calculate() {
+        return (View v) -> {
+            if(this.display.length() > 0) {
+                try {
+                    Expression expression = new ExpressionBuilder(this.display.getText().toString()).build();
+                    Double result = expression.evaluate();
+                    display.setText(result.toString());
+                }catch(IllegalArgumentException e){
+                    AppAlertDialog.showAlertDialog("Expressão matemática inválida", "Informe uma expressão matemática válida", getContext());
+                }
+            }
+        };
+    }
+
 }
