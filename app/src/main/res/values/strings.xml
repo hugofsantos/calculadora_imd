@@ -15,7 +15,6 @@
     <string name="credits">Desenvolvido por: Hugo Felipe dos Santos</string>
 
     <!-- Calculator Fragment -->
-    <string name="calculator_result">Resultado: </string>
     <string name="button_one">1</string>
     <string name="button_two">2</string>
     <string name="button_three">3</string>
