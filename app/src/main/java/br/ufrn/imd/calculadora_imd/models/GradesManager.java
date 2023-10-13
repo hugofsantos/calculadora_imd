@@ -1,8 +1,8 @@
-package br.ufrn.imd.calculadora_imd.services;
+package br.ufrn.imd.calculadora_imd.models;
 
 import br.ufrn.imd.calculadora_imd.utils.AverageSituation;
 
-public class GradesService {
+public class GradesManager {
     public AverageSituation getSituationByAverage(double average) {
         if(average >= 7) return AverageSituation.APPROVED;
         if(average >= 5) return AverageSituation.APPROVED_BY_GRADE;

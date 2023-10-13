@@ -12,20 +12,20 @@
     import android.widget.TextView;
 
     import br.ufrn.imd.calculadora_imd.R;
-    import br.ufrn.imd.calculadora_imd.services.GradesService;
+    import br.ufrn.imd.calculadora_imd.models.GradesManager;
     import br.ufrn.imd.calculadora_imd.utils.AppAlertDialog;
     import br.ufrn.imd.calculadora_imd.utils.AverageSituation;
 
 
     public class GradesFragment extends Fragment {
-        GradesService service;
+        GradesManager service;
         private EditText grade1Text;
         private EditText grade2Text;
         private EditText grade3Text;
         private TextView situationText;
 
         public GradesFragment() {
-            this.service = new GradesService();
+            this.service = new GradesManager();
         }
 
         @Override

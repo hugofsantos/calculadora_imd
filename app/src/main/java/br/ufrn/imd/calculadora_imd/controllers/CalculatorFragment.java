@@ -87,6 +87,8 @@ public class CalculatorFragment extends Fragment {
                     display.setText(result.toString());
                 }catch(IllegalArgumentException e){
                     AppAlertDialog.showAlertDialog("Expressão matemática inválida", "Informe uma expressão matemática válida", getContext());
+                }catch(ArithmeticException e) {
+                    AppAlertDialog.showAlertDialog("Erro aritimético", "Não é possível dividir por 0", getContext());
                 }
             }
         };
